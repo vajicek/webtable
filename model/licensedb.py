@@ -14,7 +14,7 @@ class LicenseTable:
     return table
 
   def get_item(self, row_id):
-    lic = self.db.GetLicense(str(row_id))
+    lic = self.db.GetLicense(row_id)
     return lic
 
   def set_item(self, row_id, value):

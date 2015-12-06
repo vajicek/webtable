@@ -21,7 +21,7 @@ class Table(CommonController):
   @cherrypy.expose
   @require()
   def edit(self, value):
-    content=self.model.get_item(int(value))
+    content=self.model.get_item(value)
     str_content = simplejson.dumps(content, indent="\t")
     data=dict(module_template='detail.jinja', key=value, value=str_content)
     return self.render(data)
@@ -31,13 +31,13 @@ class Table(CommonController):
   def save(self, key, value, control):
     if control == "store":
       content = simplejson.loads(value)
-      self.model.set_item(int(key), content)
+      self.model.set_item(key, content)
     raise cherrypy.HTTPRedirect("/table/list")
 
   @cherrypy.expose
   @require()
   def remove(self, value):
-    self.model.remove_item(int(value))
+    self.model.remove_item(value)
     raise cherrypy.HTTPRedirect("/table/list")
 
   @cherrypy.expose
