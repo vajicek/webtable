@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/tablecloth/tablecloth.css"/>
+    <script type="text/javascript" src="/js/tablecloth/tablecloth.js"></script>
+  </head>
+  <body>
+  {% if session['_cp_username'] %}
+  <div class="toolbar">
+    <div style="display: inline-block;">
+    <form method="get" action="/logout">
+      <button type="submit" class="btn btn-primary btn-block btn-large">Logout</button>
+    </form>
+    </div>
+  </div>
+  {% endif %}
+  {% include module_template %}
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    {%- for item in table.header %}
+      <th>{{item}}</th>
+    {%- endfor %}
+  </tr>
+  {%- for row in table.data %}
+  <tr>
+    {%- for item in row %}
+      <td>{{item}}</td>
+    {%- endfor %}
+  </tr>
+  {%- endfor %}
+</table>
+  
