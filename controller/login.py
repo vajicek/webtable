@@ -18,7 +18,7 @@ class Login(CommonController):
       return self.get_login_form(dict(error_msg=error_msg))
     else:
       cherrypy.session[SESSION_KEY] = cherrypy.request.login = username
-      raise cherrypy.HTTPRedirect("/table/list")    
+      raise cherrypy.HTTPRedirect("/table/list")
 
   @cherrypy.expose
   def logout(self):

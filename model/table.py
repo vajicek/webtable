@@ -1,10 +1,10 @@
 
 class Table:
 
-  def get_index(self, row_id):
+  def _get_index(self, row_id):
     return [indx for indx, row in enumerate(self.table['data']) if row[0] == row_id]
 
-  def get_view(self):
+  def get_list(self):
     return self.table
 
   def get_item(self, row_id):
@@ -14,6 +14,7 @@ class Table:
     return None
 
   def set_item(self, row_id, value):
+    row_id = value[0] # override row_id
     indices = self.get_index(row_id)
     if indices:
       self.table['data'][indices[0]] = value

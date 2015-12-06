@@ -14,7 +14,7 @@ class Table(CommonController):
   @cherrypy.expose
   @require()
   def list(self):
-    table=self.model.get_view()
+    table=self.model.get_list()
     data=dict(module_template='table.jinja', table=table)
     return self.render(data)
 
@@ -22,7 +22,7 @@ class Table(CommonController):
   @require()
   def edit(self, value):
     content=self.model.get_item(int(value))
-    str_content = simplejson.dumps(content)
+    str_content = simplejson.dumps(content, indent="\t")
     data=dict(module_template='detail.jinja', key=value, value=str_content)
     return self.render(data)
 
