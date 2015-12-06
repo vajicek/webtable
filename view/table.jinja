@@ -1,3 +1,12 @@
+{% macro actionRenderer(value) -%}
+    <div style="display: inline-block;">
+    <form method="get" action="/table/{{value['action']}}">
+      <input type="hidden" name="value" value="{{value['param']}}"/>
+      <button type="submit" class="btn btn-primary btn-block btn-large">{{ value['label'] }}</button>
+    </form>
+    </div>
+{%- endmacro %}
+
 <table cellspacing="0" cellpadding="0">
   <tr>
     {%- for item in table.header %}
@@ -6,8 +15,18 @@
   </tr>
   {%- for row in table.data %}
   <tr>
-    {%- for item in row %}
-      <td>{{item}}</td>
+    {%- for cellType1 in table.cellType %}
+      {% set cellindex = loop.index0 %}
+      {% set item = row[cellindex] %}
+      {% if cellType1 == "action" %}
+        <td>
+          {%- for item1 in item %}
+            {{ table.typeRenderer[table.cellType[cellindex]] | callMacroByName(item1) }}
+          {%- endfor %}
+        </td>
+      {% else %}
+        <td>{{ item }}</td>
+      {% endif %}
     {%- endfor %}
   </tr>
   {%- endfor %}

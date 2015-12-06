@@ -1,0 +1,11 @@
+<div class="login">
+  <h1>Edit</h1>
+    <form method="get" action="/table/save">
+      <input type="hidden" name="key" value="{{key}}"/>
+      <textarea rows="4" cols="50" name="value">
+      {{value}} 
+      </textarea>
+      <button name="control" value="store" type="submit" class="btn btn-primary btn-block btn-large">Save</button>
+      <button name="control" value="back" type="submit" class="btn btn-primary btn-block btn-large">Back</button>
+    </form>
+</div>
