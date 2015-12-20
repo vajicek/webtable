@@ -26,7 +26,7 @@ class Table:
     if indices:
       del self.table['data'][indices[0]]
 
-  def __init__(self):
+  def __init__(self, init_string=''):
     self.table=dict(
                     typeRenderer=dict(action='actionRenderer'),
                     cellType=['str','str','str','action'],
