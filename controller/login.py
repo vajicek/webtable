@@ -1,5 +1,5 @@
-from auth import check_credentials, SESSION_KEY 
-from common import CommonController
+from .auth import check_credentials, SESSION_KEY
+from .common import CommonController
 
 import cherrypy
 

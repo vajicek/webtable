@@ -1,5 +1,5 @@
-from auth import require
-from common import CommonController
+from .auth import require
+from .common import CommonController
 
 import cherrypy
 import simplejson
@@ -10,7 +10,7 @@ class Table(CommonController):
       'tools.sessions.on': True,
       'tools.auth.on': True
   }
-    
+
   @cherrypy.expose
   @require()
   def list(self):

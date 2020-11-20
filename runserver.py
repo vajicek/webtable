@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from controller.login import Login
 from controller.table import Table
 
@@ -11,7 +13,7 @@ def GetTableModel(full_class_name, string):
   module = __import__(module_class[0])
   for namespace in module_class[1:]:
     module = getattr(module, namespace)
-  instance = module(string)  
+  instance = module(string)
   return instance
 
 def main():
